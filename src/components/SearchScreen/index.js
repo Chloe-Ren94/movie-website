@@ -26,7 +26,7 @@ const Index = () => {
     return(
         <div className="container mt-5">
             <Navigation/>
-            <img src="/images/movieNight.png" className="mx-auto d-block bg-pic"/>
+            <img src="/images/movieNight.png" className="mx-auto d-block bg-pic mt-5"/>
             <div className="mt-4 input-group mx-auto searchbar">
                 <input
                     className="form-control rounded-pill me-3"

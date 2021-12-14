@@ -22,13 +22,16 @@ const Navigation = () => {
     }
 
     return(
-        <div className="container">
+        <div className="container" style={{fontSize: '2em'}}>
             <ul className="nav nav-pills float-end">
                 <li className="nav-item">
                     <Link to="/" className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/search" className="nav-link">Search</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/privacy" className="nav-link">Privacy</Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/profile" className="nav-link">
@@ -39,7 +42,7 @@ const Navigation = () => {
                     profile._id ?
                         <li className="nav-item ms-3">
                             <button
-                                className="btn btn-danger rounded-pill"
+                                className="btn btn-danger rounded-pill mx-auto d-block"
                                 onClick={logout}>
                                 Logout
                             </button>

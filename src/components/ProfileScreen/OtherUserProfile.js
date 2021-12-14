@@ -26,7 +26,7 @@ const OtherUserProfile = () => {
     useEffect(getUserProfile, []);
 
     return(
-        <div className="container">
+        <div className="container mt-5">
             <Navigation/>
             <Profile profile={userProfile} hideSensitive={true}/>
             <Lists profile={userProfile}/>

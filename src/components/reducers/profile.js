@@ -6,6 +6,21 @@ const profile = (state = {lists: [], createdAt: ''}, action) => {
             return action.profile;
         case 'destroy-profile':
             return {lists: [], createdAt: ''};
+        case 'click-edit':
+            return {
+                ...state,
+                edit: true
+            }
+        case 'click-cancel':
+            return {
+                ...state,
+                edit: false
+            }
+        case 'click-save':
+            return {
+                ...action.profile,
+                edit: false
+            }
         // case 'click-edit':
         //     return {
         //         ...state,

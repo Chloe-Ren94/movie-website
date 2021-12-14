@@ -12,7 +12,7 @@ const Index = () => {
     const [review, setReview] = useState('');
     const [writeReview, setWriteReview] = useState(false);
     const [add, setAdd] = useState(false);
-    const [selectedList, setSelectedList] = useState('my favourite');
+    const [selectedList, setSelectedList] = useState('favourite');
     const [reviews, setReviews] = useState([]);
     const navigate = useNavigate();
     const params = useParams();
@@ -123,7 +123,7 @@ const Index = () => {
     return(
         <div className="container mt-5">
             <Navigation/>
-            <h3>
+            <h3 className="mt-5">
                 {movieDetails.Title} ({movieDetails.Year})
                 {movieDetails.Rated !== 'N/A' ? ' ' + movieDetails.Rated: ''}
             </h3>
@@ -151,7 +151,11 @@ const Index = () => {
                     }
                     <div className="mt-3">
                         {findMovieInLists(profile.lists, params.id) ?
-                            <div>Saved in <Link to='/profile'>{findMovieInLists(profile.lists, params.id)}</Link></div> :
+                            <div className="text-white" style={{fontSize: '1.5em'}}>Saved in
+                                <Link to='/profile' className="text-decoration-none ms-1">
+                                    {findMovieInLists(profile.lists, params.id)}
+                                </Link>
+                            </div> :
                             <div>
                                 <div style={{fontSize: '1.5em', color: 'white'}}
                                      onClick={addToList}>
@@ -166,7 +170,6 @@ const Index = () => {
                                             {profile.lists.map(list =>
                                                 <option value={list.listname}>{list.listname}</option>)}
                                         </select>
-                                        <p>{selectedList}</p>
                                         <button
                                             className="btn btn-primary rounded-pill mt-2 ms-3 float-end"
                                             onClick={addListHandler}>
@@ -259,7 +262,6 @@ const Index = () => {
                     }
                 </ul>
             </div>
-            {JSON.stringify(profile)}
         </div>
     );
 };

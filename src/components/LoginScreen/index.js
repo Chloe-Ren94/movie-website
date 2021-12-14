@@ -26,7 +26,7 @@ const Login = () => {
         });
     }
     return(
-        <div className="container">
+        <div className="container mt-5">
             <Navigation/>
             <div className="mx-auto mt-5" style={{width: "50%"}}>
                 <div className="mb-3 row">

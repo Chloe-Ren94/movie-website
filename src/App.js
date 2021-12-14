@@ -13,10 +13,12 @@ import RegisterScreen from './components/RegisterScreen';
 import LoginScreen from './components/LoginScreen';
 import ProfileScreen from './components/ProfileScreen';
 import HomeScreen from "./components/HomeScreen";
+import Privacy from "./components/Privacy";
 
 import profile from "./components/reducers/profile";
 import login from "./components/reducers/login";
 import OtherUserProfile from "./components/ProfileScreen/OtherUserProfile";
+
 
 
 const reducer = combineReducers({profile, login})
@@ -28,6 +30,7 @@ function App() {
           <BrowserRouter>
               <Routes>
                   <Route path="/" element={<HomeScreen/>}/>
+                  <Route path="/privacy" element={<Privacy/>}/>
                   <Route path="/register" element={<RegisterScreen/>}/>
                   <Route path="/login" element={<LoginScreen/>}/>
                   <Route path="/profile" element={<ProfileScreen/>}/>
