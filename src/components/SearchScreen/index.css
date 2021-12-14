@@ -1,0 +1,17 @@
+.bg-pic {
+    width: 50%;
+    border-radius: 50%;
+}
+.searchbar {
+    width: 70%;
+}
+.no-underline {
+    text-decoration: none;
+}
+.text-center {
+    text-align: center;
+}
+.poster {
+    width: 130px;
+    height: 150px;
+}
