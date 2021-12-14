@@ -1,9 +1,25 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+
+const API_URL = 'http://localhost:4000/api';
 
 const Navigation = () => {
     const profile = useSelector(state => state.profile);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const logout = () => {
+        fetch(`${API_URL}/logout`, {
+            method: 'POST',
+            credentials: 'include'
+        }).then(res => {
+            dispatch({
+                type: 'destroy-profile'
+            });
+            navigate('/');
+        });
+    }
 
     return(
         <div className="container">
@@ -19,12 +35,23 @@ const Navigation = () => {
                         {profile._id ? profile.username : 'Profile'}
                     </Link>
                 </li>
-                {/*{*/}
-                {/*    profile ? (<button>Logout</button>) :*/}
-                {/*        (<li className="nav-item">*/}
-                {/*            <Link to="/login" className="nav-link">Login</Link>*/}
-                {/*        </li>)*/}
-                {/*}*/}
+                {
+                    profile._id ?
+                        <li className="nav-item ms-3">
+                            <button
+                                className="btn btn-danger rounded-pill"
+                                onClick={logout}>
+                                Logout
+                            </button>
+                        </li>:
+                        <li className="nav-item ms-3">
+                            <button
+                                className="btn btn-success rounded-pill"
+                                onClick={() => navigate('/login')}>
+                                Login
+                            </button>
+                        </li>
+                }
             </ul>
             <div style={{clear: 'both'}}></div>
         </div>

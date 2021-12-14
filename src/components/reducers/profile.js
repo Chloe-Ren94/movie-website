@@ -1,11 +1,11 @@
-const profile = (state = {lists: []}, action) => {
+const profile = (state = {lists: [], createdAt: ''}, action) => {
     switch (action.type) {
         case 'fetch-profile':
             return action.profile;
         case 'update-profile':
             return action.profile;
         case 'destroy-profile':
-            return {lists: []};
+            return {lists: [], createdAt: ''};
         // case 'click-edit':
         //     return {
         //         ...state,
