@@ -8,11 +8,14 @@ const Profile = ({profile, hideSensitive=true}) => {
         <div className="mt-5">
             <div>
                 <h3 className="float-start">Personal information</h3>
-                <button
-                    className="btn btn-success rounded-pill float-start ms-3"
-                    onClick={() => dispatch({type: 'click-edit'})}>
-                    Edit
-                </button>
+                {
+                    !hideSensitive &&
+                    <button
+                        className="btn btn-success rounded-pill float-start ms-3"
+                        onClick={() => dispatch({type: 'click-edit'})}>
+                        Edit
+                    </button>
+                }
                 <div style={{clear: 'both'}}></div>
                 <div>Username: {profile.username}</div>
                 <div>Bio: {profile.bio}</div>

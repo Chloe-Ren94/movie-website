@@ -4,9 +4,10 @@ import {useDispatch, useSelector} from "react-redux";
 import Navigation from "../Navigation";
 import Profile from "./Profile";
 import Lists from "./Lists";
-import Reviews from "./Reviews";
 import Admin from "./Admin";
 import EditProfile from "./EditProfile";
+import ReviewsByProfile from "./ReviewsByProfile";
+import Following from "./Following";
 
 const API_URL = 'http://localhost:4000/api'
 
@@ -40,11 +41,12 @@ const ProfileScreen = () => {
                 profile.edit ? <EditProfile profile={profile}/> :
                     <Profile profile={profile} hideSensitive={false}/>
             }
-            <Lists profile={profile}/>
-            <Reviews profile={profile}/>
+            <Lists profile={profile} hideSensitive={false}/>
+            <ReviewsByProfile profile={profile}/>
             {profile.type === 'ADMIN' &&
                 <Admin/>
             }
+            <Following profile={profile}/>
         </div>
     );
 };

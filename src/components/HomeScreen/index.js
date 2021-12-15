@@ -2,8 +2,8 @@ import React from "react";
 import Navigation from "../Navigation";
 import {useSelector} from "react-redux";
 import Lists from "../ProfileScreen/Lists";
-import Reviews from "../ProfileScreen/Reviews";
 import WhatsHappening from "./WhatsHappening";
+import ReviewsByProfile from "../ProfileScreen/ReviewsByProfile";
 
 const HomeScreen = () => {
     const profile = useSelector(state => state.profile);
@@ -14,9 +14,9 @@ const HomeScreen = () => {
             {
                 profile._id &&
                 <div className="mt-5">
-                    <h2>Hello {profile.username}</h2>
+                    <h2>Hello {profile.username}!</h2>
                     <Lists profile={profile}/>
-                    <Reviews profile={profile}/>
+                    <ReviewsByProfile profile={profile}/>
                 </div>
             }
             {

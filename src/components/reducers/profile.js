@@ -1,11 +1,13 @@
-const profile = (state = {lists: [], createdAt: ''}, action) => {
+const initState = {lists: [], createdAt: '', following: []}
+
+const profile = (state = initState, action) => {
     switch (action.type) {
         case 'fetch-profile':
             return action.profile;
         case 'update-profile':
             return action.profile;
         case 'destroy-profile':
-            return {lists: [], createdAt: ''};
+            return initState;
         case 'click-edit':
             return {
                 ...state,
@@ -21,21 +23,6 @@ const profile = (state = {lists: [], createdAt: ''}, action) => {
                 ...action.profile,
                 edit: false
             }
-        // case 'click-edit':
-        //     return {
-        //         ...state,
-        //         edit: true
-        //     }
-        // case 'click-save':
-        //     return {
-        //         ...action.profile,
-        //         edit: false
-        //     }
-        // case 'click-cancel':
-        //     return {
-        //         ...state,
-        //         edit: false
-        //     }
         default:
             return state
     }

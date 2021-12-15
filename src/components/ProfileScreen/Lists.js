@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 
-const Lists = ({profile}) => {
+const Lists = ({profile, hideSensitive=true}) => {
     const lists = profile.lists;
     const [createList, setCreateList] = useState(false);
     const [listname, setListname] = useState('');
@@ -37,17 +37,20 @@ const Lists = ({profile}) => {
         <div className="mt-5">
             <div>
                 <h3 className="float-start">Lists</h3>
-                <button
-                    className="btn btn-success rounded-pill float-start ms-3"
-                    onClick={() => {
-                        if(profile.type === 'COMMON') {
-                            alert('Common user can only have one list!');
-                        } else {
-                            setCreateList(true);
-                        }
-                    }}>
-                    Create a list
-                </button>
+                {
+                    !hideSensitive &&
+                    <button
+                        className="btn btn-success rounded-pill float-start ms-3"
+                        onClick={() => {
+                            if(profile.type === 'COMMON') {
+                                alert('Common user can only have one list!');
+                            } else {
+                                setCreateList(true);
+                            }
+                        }}>
+                        Create a list
+                    </button>
+                }
             </div>
             <div style={{clear: 'both'}}></div>
             {createList &&

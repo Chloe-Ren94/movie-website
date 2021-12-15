@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
-const Reviews = ({profile}) => {
+const ReviewsByProfile = ({profile}) => {
     const [reviews, setReviews] = useState([]);
 
     const findReviewsByUserID = () => {
@@ -38,4 +38,4 @@ const Reviews = ({profile}) => {
         </div>
     )
 }
-export default Reviews;
+export default ReviewsByProfile;
