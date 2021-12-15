@@ -40,19 +40,15 @@ const Navigation = () => {
                 </li>
                 {
                     profile._id ?
-                        <li className="nav-item ms-3">
-                            <button
-                                className="btn btn-danger rounded-pill mx-auto d-block"
-                                onClick={logout}>
+                        <li className="nav-item">
+                            <Link to="/" className="nav-link" onClick={logout}>
                                 Logout
-                            </button>
+                            </Link>
                         </li>:
-                        <li className="nav-item ms-3">
-                            <button
-                                className="btn btn-success rounded-pill"
-                                onClick={() => navigate('/login')}>
+                        <li className="nav-item">
+                            <Link to="/login" className="nav-link">
                                 Login
-                            </button>
+                            </Link>
                         </li>
                 }
             </ul>

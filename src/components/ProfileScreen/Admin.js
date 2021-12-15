@@ -22,7 +22,7 @@ const Admin = () => {
             <button
                 onClick={() => {
                     getUsers();
-                    setManageUsers(true);
+                    setManageUsers(!manageUsers);
                 }}
                 className="btn btn-warning">
                 Manage users

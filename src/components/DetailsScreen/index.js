@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import Navigation from "../Navigation";
 import {findMovieInLists} from "../services/listService";
+import './index.css';
 
 const API_URL = 'http://localhost:4000/api'
 
@@ -128,11 +129,11 @@ const Index = () => {
                 {movieDetails.Rated !== 'N/A' ? ' ' + movieDetails.Rated: ''}
             </h3>
             <div className="row mt-4">
-                <img className="col-2"
+                <img className="col-6 col-sm-6 col-md-4 col-lg-3 poster"
                      src={
                          movieDetails.Poster === 'N/A' ? '/images/defaultPoster.png'
                              : movieDetails.Poster}/>
-                <div className="col-6 ps-3">
+                <div className="col-6 col-sm-6 col-md-4 col-lg-5">
                     <div>Director: {movieDetails.Director}</div>
                     <div>Writer: {movieDetails.Writer}</div>
                     <div>Actors: {movieDetails.Actors}</div>
@@ -142,7 +143,7 @@ const Index = () => {
                     <div>Release date: {movieDetails.Released}</div>
                     <div>Length: {movieDetails.Runtime}</div>
                 </div>
-                <div className="col-4">
+                <div className="d-none d-sm-none d-md-block col-md-4 col-lg-4">
                     <h5>Ratings</h5>
                     <div>IMDb: {movieDetails.imdbRating}</div>
                     {

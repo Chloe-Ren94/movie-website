@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import Lists from "../ProfileScreen/Lists";
 import WhatsHappening from "./WhatsHappening";
 import ReviewsByProfile from "../ProfileScreen/ReviewsByProfile";
+import Following from "../ProfileScreen/Following";
 
 const HomeScreen = () => {
     const profile = useSelector(state => state.profile);
@@ -17,6 +18,7 @@ const HomeScreen = () => {
                     <h2>Hello {profile.username}!</h2>
                     <Lists profile={profile}/>
                     <ReviewsByProfile profile={profile}/>
+                    <Following profile={profile}/>
                 </div>
             }
             {

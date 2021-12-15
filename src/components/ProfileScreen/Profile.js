@@ -1,7 +1,7 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 
-const Profile = ({profile, hideSensitive=true}) => {
+const Profile = ({profile, hideSensitive=true, edit=false}) => {
     const dispatch = useDispatch();
 
     return(
@@ -9,7 +9,7 @@ const Profile = ({profile, hideSensitive=true}) => {
             <div>
                 <h3 className="float-start">Personal information</h3>
                 {
-                    !hideSensitive &&
+                    edit &&
                     <button
                         className="btn btn-success rounded-pill float-start ms-3"
                         onClick={() => dispatch({type: 'click-edit'})}>
@@ -18,16 +18,16 @@ const Profile = ({profile, hideSensitive=true}) => {
                 }
                 <div style={{clear: 'both'}}></div>
                 <div>Username: {profile.username}</div>
-                <div>Bio: {profile.bio}</div>
-                <div>Joined: {profile.createdAt.split('T')[0]}</div>
+                <div className="mt-2">Bio: {profile.bio}</div>
+                <div className="mt-2">Joined: {profile.createdAt.split('T')[0]}</div>
             </div>
             {
                 !hideSensitive &&
                     <div>
-                        <div>Email: {profile.email}</div>
-                        <div>Birthday: {profile.birthday}</div>
-                        <div>Location: {profile.location}</div>
-                        <div>User type: {profile.type}</div>
+                        <div className="mt-2">Email: {profile.email}</div>
+                        <div className="mt-2">Birthday: {profile.birthday}</div>
+                        <div className="mt-2">Location: {profile.location}</div>
+                        <div className="mt-2">User type: {profile.type}</div>
                     </div>
             }
         </div>

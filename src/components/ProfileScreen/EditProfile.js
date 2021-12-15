@@ -31,30 +31,51 @@ const EditProfile = ({profile}) => {
     return(
         <div className="mt-5">
             <h3>Edit personal information</h3>
-            <div className="border border-secondary rounded p-2">
-                <div>Email</div>
-                <input className="form-control ps-0 text-white bg-black"
-                       value={email}
-                       onChange={e => setEmail(e.target.value)}/>
+            <div className="mb-3 row">
+                <label htmlFor="email" className="col-sm-2 col-md-2 col-lg-1 col-form-label">
+                    Email</label>
+                <div className="col-sm-10 col-md-10 col-lg-11">
+                    <input
+                        className="form-control text-white bg-black border"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        placeholder="email"
+                        id="email"/>
+                </div>
             </div>
-            <div className="border border-secondary rounded p-2 mt-3">
-                <div>Location</div>
-                <input className="form-control ps-0 text-white bg-black"
-                       value={location}
-                       onChange={e => setLocation(e.target.value)}/>
+            <div className="mb-3 row">
+                <label htmlFor="location" className="col-sm-2 col-md-2 col-lg-1 col-form-label">
+                    Location</label>
+                <div className="col-sm-10 col-md-10 col-lg-11">
+                    <input
+                        className="form-control text-white bg-black border"
+                        value={location}
+                        onChange={e => setLocation(e.target.value)}
+                        placeholder="location"
+                        id="location"/>
+                </div>
             </div>
-            <div className="border border-secondary rounded p-2 mt-3">
-                <div>Bio</div>
-                <textarea className="form-control ps-0 text-white bg-black"
-                          style={{resize: "none"}}
-                          value={bio}
-                          onChange={e => setBio(e.target.value)}>
-                </textarea>
+            <div className="mb-3 row">
+                <label htmlFor="bio" className="col-sm-2 col-md-2 col-lg-1 col-form-label">
+                    Bio</label>
+                <div className="col-sm-10 col-md-10 col-lg-11">
+                    <textarea className="form-control text-white bg-black border"
+                              rows="3"
+                              value={bio}
+                              onChange={e => setBio(e.target.value)}
+                              placeholder="bio"
+                              id="bio">
+                     </textarea>
+                </div>
             </div>
-            <div className="border border-secondary rounded p-2 mt-3">
-                <div>Birthday</div>
-                <input className="form-control" type="date" value={birthday}
-                       onChange={e => setBirthday(e.target.value)}/>
+            <div className="mb-3 row">
+                <label htmlFor="birthday" className="col-sm-2 col-md-2 col-lg-1 col-form-label">
+                    Birthday</label>
+                <div className="col-sm-10 col-md-10 col-lg-11">
+                    <input className="form-control" type="date" value={birthday}
+                           onChange={e => setBirthday(e.target.value)}
+                           id="birthday"/>
+                </div>
             </div>
             <button
                 className="btn btn-primary float-end rounded-pill mt-3 ms-3"

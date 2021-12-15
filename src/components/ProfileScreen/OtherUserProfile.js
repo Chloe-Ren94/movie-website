@@ -84,7 +84,9 @@ const OtherUserProfile = () => {
     return(
         <div className="container mt-5">
             <Navigation/>
-            <Profile profile={userProfile} hideSensitive={true}/>
+            <Profile profile={userProfile} hideSensitive={
+                profile.type === 'ADMIN' ? false : true
+            }/>
             {
                 findInFollowing(userProfile, profile) ?
                     <button

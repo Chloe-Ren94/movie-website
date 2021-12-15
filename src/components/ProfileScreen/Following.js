@@ -13,7 +13,7 @@ const Following = ({profile}) => {
                     You do not have any following yet.
                 </p>
             }
-            <ul className="list-group mt-2">
+            <ul className="list-group mt-2" style={{width: '50%'}}>
                 {
                     following.map(user =>
                         <li key={user.userID} className="list-group-item">

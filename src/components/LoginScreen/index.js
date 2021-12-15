@@ -30,9 +30,9 @@ const Login = () => {
             <Navigation/>
             <div className="mx-auto mt-5" style={{width: "50%"}}>
                 <div className="mb-3 row">
-                    <label htmlFor="username" className="col-sm-2 col-form-label">
+                    <label htmlFor="username" className="col-sm-4 col-md-3 col-form-label">
                         Username</label>
-                    <div className="col-sm-10">
+                    <div className="col-sm-8 col-md-9">
                         <input
                             className="form-control"
                             value={user.username}
@@ -42,9 +42,9 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="mb-3 row">
-                    <label htmlFor="password" className="col-sm-2 col-form-label">
+                    <label htmlFor="password" className="col-sm-4 col-md-3 col-form-label">
                         Password</label>
-                    <div className="col-sm-10">
+                    <div className="col-sm-8 col-md-9">
                         <input
                             className="form-control"
                             type="password"
@@ -63,7 +63,7 @@ const Login = () => {
                 </div>
                 <div className="mt-2 mx-auto">
                     Don't have an account?
-                    <Link to="/register" className="ms-2">Register</Link> now!
+                    <Link to="/register" className="ms-2 text-decoration-none">Register</Link> now!
                 </div>
             </div>
         </div>

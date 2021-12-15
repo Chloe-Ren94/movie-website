@@ -28,9 +28,9 @@ const Register = () => {
             <Navigation/>
             <div style={{width: "50%"}} className="mx-auto mt-5">
                 <div className="mb-3 row">
-                    <label for="username" className="col-sm-2 col-form-label">
+                    <label for="username" className="col-sm-4 col-md-3 col-form-label">
                         Username</label>
-                    <div className="col-sm-10">
+                    <div className="col-sm-8 col-md-9">
                         <input
                             className="form-control"
                             value={user.username}
@@ -40,9 +40,9 @@ const Register = () => {
                     </div>
                 </div>
                 <div className="mb-3 row">
-                    <label for="password" className="col-sm-2 col-form-label">
+                    <label for="password" className="col-sm-4 col-md-3 col-form-label">
                         Password</label>
-                    <div className="col-sm-10">
+                    <div className="col-sm-8 col-md-9">
                         <input
                             className="form-control"
                             type="password"
@@ -53,8 +53,8 @@ const Register = () => {
                     </div>
                 </div>
                 <div className="mb-3 row">
-                    <label className="col-sm-2 col-form-label">User type</label>
-                    <select className="form-select ms-3"
+                    <label className="col-sm-4 col-md-3 col-form-label">User type</label>
+                    <select className="form-select col-sm-8 col-md-9 ms-3"
                             style={{width: '50%'}}
                             value={user.type}
                             onChange={e => setUser({

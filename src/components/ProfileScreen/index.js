@@ -39,14 +39,14 @@ const ProfileScreen = () => {
             <Navigation/>
             {
                 profile.edit ? <EditProfile profile={profile}/> :
-                    <Profile profile={profile} hideSensitive={false}/>
+                    <Profile profile={profile} hideSensitive={false} edit={true}/>
             }
             <Lists profile={profile} hideSensitive={false}/>
             <ReviewsByProfile profile={profile}/>
-            {profile.type === 'ADMIN' &&
-                <Admin/>
-            }
             <Following profile={profile}/>
+            {
+                profile.type === 'ADMIN' && <Admin/>
+            }
         </div>
     );
 };
