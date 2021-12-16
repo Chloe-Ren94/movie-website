@@ -2,7 +2,7 @@ import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
-const API_URL = 'http://localhost:4000/api';
+const API_URL = 'https://webdev-movie-website.herokuapp.com/api';
 
 const Navigation = ({active}) => {
     const profile = useSelector(state => state.profile);

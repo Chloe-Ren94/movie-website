@@ -21,7 +21,7 @@ const Lists = ({profile, hideSensitive=true}) => {
                 }
             ]
         }
-        fetch('http://localhost:4000/api/users', {
+        fetch('https://webdev-movie-website.herokuapp.com/api/users', {
             method: 'PUT',
             body: JSON.stringify(newProfile),
             headers: {

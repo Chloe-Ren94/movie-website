@@ -5,7 +5,7 @@ const WhatsHappening = () => {
     const [reviews, setReviews] = useState([]);
 
     const findAllReviews = () => {
-        fetch(`http://localhost:4000/api/reviews`)
+        fetch(`https://webdev-movie-website.herokuapp.com/api/reviews`)
             .then(res => res.json())
             .then(reviews =>
                 setReviews(reviews

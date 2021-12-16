@@ -6,12 +6,12 @@ const Admin = () => {
     const [manageUsers, setManageUsers] = useState(false);
 
     const getUsers = () => {
-        fetch('http://localhost:4000/api/users')
+        fetch('https://webdev-movie-website.herokuapp.com/api/users')
             .then(res => res.json())
             .then(users => setUsers(users))
     }
     const deleteUser = (deleteUser) => {
-        fetch(`http://localhost:4000/api/users/${deleteUser._id}`, {
+        fetch(`https://webdev-movie-website.herokuapp.com/api/users/${deleteUser._id}`, {
             method: 'DELETE'
         }).then(res => setUsers(users.filter(user => user._id !== deleteUser._id)))
     }

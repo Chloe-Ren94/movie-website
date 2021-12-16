@@ -5,7 +5,7 @@ import Navigation from "../Navigation";
 import {findMovieInLists} from "../services/listService";
 import './index.css';
 
-const API_URL = 'http://localhost:4000/api'
+const API_URL = 'https://webdev-movie-website.herokuapp.com/api'
 
 const Index = () => {
     const profile = useSelector(state => state.profile);
@@ -27,7 +27,7 @@ const Index = () => {
             .then(movie => setMovieDetails(movie));
 
     const findReviewsByImdbID = () =>
-        fetch(`http://localhost:4000/api/movies/${params.id}/reviews`)
+        fetch(`${API_URL}/movies/${params.id}/reviews`)
             .then(res => res.json())
             .then(reviews => setReviews(reviews));
 
@@ -39,7 +39,7 @@ const Index = () => {
             username: profile.username,
             review
         }
-        fetch('http://localhost:4000/api/reviews', {
+        fetch(`${API_URL}/reviews`, {
             method: 'POST',
             body: JSON.stringify(newReview),
             headers: {
@@ -74,7 +74,7 @@ const Index = () => {
                 }
             })
         }
-        fetch('http://localhost:4000/api/users', {
+        fetch(`${API_URL}/users`, {
             method: 'PUT',
             body: JSON.stringify(newProfile),
             headers: {
@@ -111,7 +111,7 @@ const Index = () => {
         setReview('');
     }
     const deleteReview = (review) => {
-        fetch(`http://localhost:4000/api/reviews/${review._id}`, {
+        fetch(`${API_URL}/reviews/${review._id}`, {
             method: 'DELETE'
         })
             .then(res => setReviews(reviews.filter(r => r._id !== review._id)))
@@ -123,7 +123,7 @@ const Index = () => {
             ...editedReview,
             review
         }
-        fetch('http://localhost:4000/api/reviews', {
+        fetch(`${API_URL}/reviews`, {
             method: 'PUT',
             body: JSON.stringify(newReview),
             headers: {

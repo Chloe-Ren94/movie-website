@@ -5,7 +5,7 @@ const ReviewsByProfile = ({profile}) => {
     const [reviews, setReviews] = useState([]);
 
     const findReviewsByUserID = () => {
-        fetch(`http://localhost:4000/api/reviews/user/${profile._id}`)
+        fetch(`https://webdev-movie-website.herokuapp.com/api/reviews/user/${profile._id}`)
             .then(res => res.json())
             .then(reviews => setReviews(reviews));
     }

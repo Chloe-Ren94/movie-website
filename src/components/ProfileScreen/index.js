@@ -9,7 +9,7 @@ import EditProfile from "./EditProfile";
 import ReviewsByProfile from "./ReviewsByProfile";
 import Following from "./Following";
 
-const API_URL = 'http://localhost:4000/api'
+const API_URL = 'https://webdev-movie-website.herokuapp.com/api'
 
 const ProfileScreen = () => {
     const profile = useSelector(state => state.profile);

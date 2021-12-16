@@ -3,7 +3,7 @@ import {useState} from "react";
 import Navigation from "../Navigation";
 import {useDispatch} from "react-redux";
 
-const API_URL = 'http://localhost:4000/api';
+const API_URL = 'https://webdev-movie-website.herokuapp.com/api';
 
 const Login = () => {
     const [user, setUser] = useState({});

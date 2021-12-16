@@ -2,7 +2,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import Navigation from "../Navigation";
 
-const API_URL = 'http://localhost:4000/api'
+const API_URL = 'https://webdev-movie-website.herokuapp.com/api'
 
 const Register = () => {
     const [user, setUser] = useState({username: '', password: '', type: 'COMMON'});

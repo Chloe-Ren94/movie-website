@@ -8,7 +8,7 @@ import ReviewsByReview from "./ReviewsByReview";
 import {findInFollowing} from "../services/followingService";
 
 
-const API_URL = 'http://localhost:4000/api'
+const API_URL = 'https://webdev-movie-website.herokuapp.com/api'
 
 const OtherUserProfile = () => {
     const profile = useSelector(state => state.profile);
@@ -28,7 +28,7 @@ const OtherUserProfile = () => {
     }
 
     const findReviewsByUserID = () => {
-        fetch(`http://localhost:4000/api/reviews/user/${profileID}`)
+        fetch(`https://webdev-movie-website.herokuapp.com/api/reviews/user/${profileID}`)
             .then(res => res.json())
             .then(reviews => setReviews(reviews));
     }
@@ -47,7 +47,7 @@ const OtherUserProfile = () => {
                 ...profile.following
             ]
         }
-        fetch('http://localhost:4000/api/users', {
+        fetch('https://webdev-movie-website.herokuapp.com/api/users', {
             method: 'PUT',
             body: JSON.stringify(newProfile),
             headers: {
@@ -64,7 +64,7 @@ const OtherUserProfile = () => {
             ...profile,
             following: profile.following.filter(user => user.userID !== userProfile._id)
         }
-        fetch('http://localhost:4000/api/users', {
+        fetch('https://webdev-movie-website.herokuapp.com/api/users', {
             method: 'PUT',
             body: JSON.stringify(newProfile),
             headers: {
