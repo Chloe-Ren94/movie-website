@@ -18,6 +18,8 @@ const Index = () => {
     const navigate = useNavigate();
     const params = useParams();
     const [movieDetails, setMovieDetails] = useState({Actors: '', Ratings: []});
+    const [edit, setEdit] = useState(false);
+    const [editedReview, setEditedReview] = useState({});
 
     const findMovieDetailsByImdbID = () =>
         fetch(`https://www.omdbapi.com/?i=${params.id}&apikey=234b07dc`)
@@ -95,7 +97,9 @@ const Index = () => {
         if(!profile._id) {
             navigate('/login');
         }
-        setWriteReview(true);
+        if(!edit) {
+            setWriteReview(true);
+        }
     }
     const cancelWriteHandler = () => {
         setWriteReview(false);
@@ -105,6 +109,30 @@ const Index = () => {
         submitReview();
         setWriteReview(false);
         setReview('');
+    }
+    const deleteReview = (review) => {
+        fetch(`http://localhost:4000/api/reviews/${review._id}`, {
+            method: 'DELETE'
+        })
+            .then(res => setReviews(reviews.filter(r => r._id !== review._id)))
+    }
+    const editReviewHandler = () => {
+        setEdit(false);
+        setReview('');
+        const newReview = {
+            ...editedReview,
+            review
+        }
+        fetch('http://localhost:4000/api/reviews', {
+            method: 'PUT',
+            body: JSON.stringify(newReview),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => setReviews(reviews.map(review =>
+                review._id === newReview._id ? newReview : review
+            )))
     }
 
     const addToList = () => {
@@ -214,6 +242,8 @@ const Index = () => {
                     onClick={createReviewHandler}>
                     Write a review
                 </button>
+
+                <a name="review"></a>
                 <h4>Reviews</h4>
                 {writeReview &&
                     <div>
@@ -240,6 +270,34 @@ const Index = () => {
                         <div style={{clear: 'both'}}></div>
                     </div>
                 }
+                {edit &&
+                <div>
+                        <textarea className="form-control border"
+                                  placeholder="Write your review"
+                                  rows="3"
+                                  style={{backgroundColor: "black", color: "white"}}
+                                  value={review}
+                                  onChange={(event) =>
+                                      setReview(event.target.value)}>
+                        </textarea>
+                    <div className="mt-2">
+                        <button
+                            className="btn btn-primary rounded-pill ms-3 float-end"
+                            onClick={() => editReviewHandler(review)}>
+                            Edit
+                        </button>
+                        <button
+                            className="btn btn-danger rounded-pill float-end"
+                            onClick={() => {
+                                setEdit(false);
+                                setReview('');
+                            }}>
+                            Cancel
+                        </button>
+                    </div>
+                    <div style={{clear: 'both'}}></div>
+                </div>
+                }
                 {
                     reviews.length === 0 &&
                     <p>
@@ -255,9 +313,26 @@ const Index = () => {
                                     style={{"text-decoration": "none"}}>
                                     {review.username}
                                 </Link>
-                                <span className="ms-2 text-dark">{review.createdAt.split('T')[0]
-                                }</span>
+                                <span className="ms-2 text-dark">{review.createdAt.split('T')[0]}</span>
                                 <p>{review.review}</p>
+                                {
+                                    (profile.type === 'ADMIN' || profile._id === review.userID) &&
+                                    <a href="#review"
+                                       className="text-decoration-none float-end ms-4"
+                                       onClick={() => deleteReview(review)}>delete</a>
+                                }
+                                {
+                                    profile.type !== 'COMMON' && profile._id === review.userID &&
+                                    <a href="#review"
+                                       className="text-decoration-none float-end"
+                                       onClick={() => {
+                                           if(!writeReview) {
+                                               setEdit(true);
+                                               setEditedReview(review);
+                                               setReview(review.review);
+                                           }
+                                       }}>edit</a>
+                                }
                             </li>
                         )
                     }

@@ -40,7 +40,7 @@ const Lists = ({profile, hideSensitive=true}) => {
                 {
                     !hideSensitive &&
                     <button
-                        className="btn btn-success rounded-pill float-start ms-3"
+                        className="btn btn-success rounded-pill float-start ms-3 mt-1"
                         onClick={() => {
                             if(profile.type === 'COMMON') {
                                 alert('Common user can only have one list!');

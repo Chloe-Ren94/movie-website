@@ -25,7 +25,7 @@ const Index = () => {
 
     return(
         <div className="container mt-5">
-            <Navigation/>
+            <Navigation active='search'/>
             <img src="/images/movieNight.png" className="mx-auto d-block bg-pic mt-5"/>
             <div className="mt-4 input-group mx-auto searchbar">
                 <input

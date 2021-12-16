@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 const Privacy = () => {
     return(
         <div className="mt-5 container">
-            <Navigation/>
+            <Navigation active='privacy'/>
 
             <h1 className="mt-5">Privacy Policy for Movie Website</h1>
 

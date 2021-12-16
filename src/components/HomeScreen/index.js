@@ -11,7 +11,7 @@ const HomeScreen = () => {
 
     return(
         <div className="mt-5 container">
-            <Navigation/>
+            <Navigation active='home'/>
             {
                 profile._id &&
                 <div className="mt-5">

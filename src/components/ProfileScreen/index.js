@@ -36,7 +36,7 @@ const ProfileScreen = () => {
 
     return(
         <div className="container mt-5">
-            <Navigation/>
+            <Navigation active='profile'/>
             {
                 profile.edit ? <EditProfile profile={profile}/> :
                     <Profile profile={profile} hideSensitive={false} edit={true}/>

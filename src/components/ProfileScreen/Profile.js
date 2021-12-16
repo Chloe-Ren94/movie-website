@@ -11,7 +11,7 @@ const Profile = ({profile, hideSensitive=true, edit=false}) => {
                 {
                     edit &&
                     <button
-                        className="btn btn-success rounded-pill float-start ms-3"
+                        className="btn btn-success rounded-pill float-start ms-3 mt-1"
                         onClick={() => dispatch({type: 'click-edit'})}>
                         Edit
                     </button>

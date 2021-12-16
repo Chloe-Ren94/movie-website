@@ -27,7 +27,7 @@ const Login = () => {
     }
     return(
         <div className="container mt-5">
-            <Navigation/>
+            <Navigation active='login'/>
             <div className="mx-auto mt-5" style={{width: "50%"}}>
                 <div className="mb-3 row">
                     <label htmlFor="username" className="col-sm-4 col-md-3 col-form-label">
