@@ -63,7 +63,7 @@ const Register = () => {
                             })}>
                         <option value="COMMON">common</option>
                         <option value="VIP">vip</option>
-                        <option value="ADMIN">admin</option>
+                        {/*<option value="ADMIN">admin</option>*/}
                     </select>
                 </div>
                 <div className="text-center">
